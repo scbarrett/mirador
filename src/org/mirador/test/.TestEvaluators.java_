@@ -1,0 +1,145 @@
+/* --------------------------------------------------------------------------+
+   TestEvaluators.java - Unit tests of model element similarity evaluators.
+
+   Created by: Stephen Barrett
+               Concordia University
+               Montreal, Quebec
+               ste_barr@encs.concorida.ca
+
+   Licensed Material - Dependable Software Research Group
+   -------------------------------------------------------------------------*/
+package ca.dsrg.mirador.test;
+import ca.dsrg.mirador.change.ChangeRecord.MSide;
+import ca.dsrg.mirador.change.fujaba.FujabaRecord;
+import ca.dsrg.mirador.model.MElement;
+import org.junit.Before;
+import org.junit.Test;
+
+
+/**
+ * Tests CTransaction creation from the CoObRA records of a simulated model
+ * file, verifies the resulting object's state, and the final read point in
+ * the model file.
+ *
+ * @since   v0.0 - Mar 3, 2010
+ * @author  Stephen Barrett
+ */
+public class TestEvaluators {
+  /**
+   * Simulates a small portion of a model file containing a Fujaba transaction.
+   * @throws IllegalAccessException
+   * @throws IllegalArgumentException
+   */
+  @Before public void setUp() throws IllegalArgumentException, IllegalAccessException { // FIXME: Get access for test cases.
+    FieldAccessor.setField(co_el1_, "name_", "ElementOne");
+    co_el1_.setCreatedOn(MSide.COMMON);
+
+    FieldAccessor.setField(lf_el1_, "name_", "ElementOne");
+    lf_el1_.setCreatedOn(MSide.LEFT);
+
+    FieldAccessor.setField(rt_el1_, "name_", "ElementOne");
+    rt_el1_.setCreatedOn(MSide.RIGHT);
+
+
+    FieldAccessor.setField(co_el2_, "name_", "ElementTwo");
+    co_el2_.setCreatedOn(MSide.COMMON);
+
+    FieldAccessor.setField(lf_el2_, "name_", "ElementTwo");
+    lf_el2_.setCreatedOn(MSide.LEFT);
+
+    FieldAccessor.setField(rt_el2_, "name_", "ElementTwo");
+    rt_el2_.setCreatedOn(MSide.RIGHT);
+  }
+
+  /**
+   * Asserts proper element structure similarity measures.
+   */
+  @Test public final void testHistory() {
+//    HistoryEvaluator evaluator = new HistoryEvaluator();
+  }
+
+  /**
+   * Asserts proper element ID similarity measures.
+   */
+  @Test public final void testId() {
+/*    IdEvaluator evaluator = new IdEvaluator();
+    float f;
+
+    f = evaluator.evaluate(co_el1_, co_el1_);
+    assertTrue("\nCommon, same ID not matched",
+        1.0 - delta_ <= f && f <= 1 + delta_);
+
+    f = evaluator.evaluate(lf_el1_, lf_el1_);
+    assertTrue("\nLeft, same ID not matched",
+        1.0 - delta_ <= f && f <= 1 + delta_);
+
+    f = evaluator.evaluate(rt_el1_, rt_el1_);
+    assertTrue("\nRight, same ID not matched",
+        1.0 - delta_ <= f && f <= 1 + delta_);
+
+
+    f = evaluator.evaluate(co_el1_, co_el2_);
+    assertTrue("\nCommon, different ID matched",
+        0.0 - delta_ <= f && f <= 0.0 + delta_);
+
+    f = evaluator.evaluate(lf_el1_, lf_el2_);
+    assertTrue("\nLeft, different ID matched",
+        0.0 - delta_ <= f && f <= 0.0 + delta_);
+
+    f = evaluator.evaluate(rt_el1_, rt_el2_);
+    assertTrue("\nRight, different ID matched",
+        0.0 - delta_ <= f && f <= 0.0 + delta_);
+
+
+    f = evaluator.evaluate(lf_el1_, rt_el1_);
+    assertTrue("\nOpposite, same ID not matched",
+        1.0 - delta_ <= f && f <= 1.0 + delta_);
+
+    f = evaluator.evaluate(lf_el1_, rt_el2_);
+    assertTrue("\nOpposite, different ID matched",
+        0.0 - delta_ <= f && f <= 0.0 + delta_);*/
+  }
+
+  /**
+   * Asserts proper element name similarity measures.
+   */
+  @Test public final void testName() {
+/*    NameEvaluator evaluator = new NameEvaluator();
+    float delta = 10e-6f;
+    float f;
+
+    f = evaluator.evaluate(co_el1_, co_el1_);
+    assertTrue("\nSame name not matched",
+        1.0 - delta <= f && f <= 1 + delta);
+
+    f = evaluator.evaluate(lf_el1_, rt_el2_);
+    assertTrue("\nDifferent name, wrong score",
+        0.75 - delta <= f && f <= 0.75 + delta);*/
+  }
+
+  /**
+   * Asserts proper element structure similarity measures.
+   */
+  @Test public final void testDependency() {
+//    DependencyEvaluator evaluator = new DependencyEvaluator();
+  }
+
+  /**
+   * Asserts proper element structure similarity measures.
+   */
+  @Test public final void testStructure() {
+//    StructureEvaluator evaluator = new StructureEvaluator();
+  }
+
+  // Instance data ----------------------------------------------------------
+  private MElement<FujabaRecord> co_el1_ = new MElement<FujabaRecord>("el1");
+  private MElement<FujabaRecord> lf_el1_ = new MElement<FujabaRecord>("el1");
+  private MElement<FujabaRecord> rt_el1_ = new MElement<FujabaRecord>("el1");
+
+  private MElement<FujabaRecord> co_el2_ = new MElement<FujabaRecord>("el2");
+  private MElement<FujabaRecord> lf_el2_ = new MElement<FujabaRecord>("el2");
+  private MElement<FujabaRecord> rt_el2_ = new MElement<FujabaRecord>("el2");
+
+//  private float delta_ = 10e-6f;
+  // End instance data ------------------------------------------------------
+}

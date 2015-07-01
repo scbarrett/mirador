@@ -1,0 +1,66 @@
+/* --------------------------------------------------------------------------+
+   Matchable.java - High-level description of module and place in system.
+   DOCDO: Finish file description and details.
+
+   Created by: Stephen Barrett
+               Concordia University
+               Montreal, Quebec
+               ste_barr@encs.concorida.ca
+
+   Licensed Material - Dependable Software Research Group
+   --------------------------------------------------------------------------+
+   Design rational, and module details that need highlighting.
+   -------------------------------------------------------------------------*/
+package ca.dsrg.mirador.model;
+import ca.dsrg.mirador.change.ChangeRecord;
+import ca.dsrg.mirador.change.ChangeRecord.MergeSide;
+
+
+/**                                                                       DOCDO: Provide class overview.
+ *
+ * @since   v0.22 - Apr 5, 2010
+ * @author  Stephen Barrett
+ */
+public interface Matchable<T extends ChangeRecord> {
+  /**                                                                     DOCDO: Provide method overview.
+   *
+   * @return  The field's current value.
+   * @category  getter
+   */
+  MergeSide getMergeSide();
+
+  /**                                                                     DOCDO: Provide method overview.
+   *
+   * @param  merge_side  Purpose of the argument.
+   * @category  setter
+   */
+  void setMergeSide(MergeSide merge_side);
+
+  /**                                                                     DOCDO: Provide method overview.
+   *
+   * @return  The field's current value.
+   * @category  getter
+   */
+//??  UmlElement<T> getMatch();
+
+  /**                                                                     DOCDO: Provide method overview.
+   *
+   * @param  match  Set-to value for the field.
+   * @category  setter
+   */
+//??  void setMatch(UmlElement<T> match);
+
+  /**                                                                     DOCDO: Provide method overview.
+   *
+   * @return  The field's current value.
+   * @category  getter
+   */
+//??  UmlElement<T> getParent();
+
+  /**                                                                     DOCDO: Provide method overview.
+   *
+   * @param  parent  Purpose of the argument.
+   * @category  setter
+   */
+//??  void setParent(UmlElement<T> parent);
+}

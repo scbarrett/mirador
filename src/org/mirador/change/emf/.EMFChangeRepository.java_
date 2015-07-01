@@ -1,0 +1,97 @@
+/* --------------------------------------------------------------------------+
+   EMFChangeRepository.java - Abstraction of deposit point for the salient items
+     of a merge session as drawn from the common, left, and right models.
+
+   Created by: Stephen Barrett
+               Concordia University
+               Montreal, Quebec
+               ste_barr@encs.concorida.ca
+
+   Licensed Material - Dependable Software Research Group
+   --------------------------------------------------------------------------+
+   Repository items include the common, left, and right change logs, lists of
+   their changes, and the operations gathered into transactions.
+
+   While not mandated by the change recorder decoupling design, it is currently
+   assumed that the models are of the same type.
+   --------------------------------------------------------------------------*/
+package ca.dsrg.mirador.change.emf;
+import ca.dsrg.mirador.change.ChangeRepository;
+import ca.dsrg.mirador.change.MiradorRecord;
+import ca.dsrg.mirador.change.MiradorTransaction;
+import java.util.List;
+
+
+/**                                                                       DOCDO: Provide class overview.
+ *
+ * @since   v0.45 - Oct 23, 2010
+ * @author  Stephen Barrett
+ */
+public class EMFChangeRepository
+    extends ChangeRepository<MiradorRecord, MiradorTransaction> {
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ accessors
+  /**
+   * Gives changes of the common base model.
+   *
+   * @return  Base model changes.
+   * @category  getter
+   */
+  @Override public List<MiradorRecord> getChangesBase() {
+    return getMiradorChangesBase();
+  }
+
+
+  /**
+   * Gives changes of the left model.
+   *
+   * @return  Left model changes.
+   * @category  getter
+   */
+  @Override public List<MiradorRecord> getChangesLeft() {
+    return getMiradorChangesLeft();
+  }
+
+
+  /**
+   * Gives changes of the right model.
+   *
+   * @return  Right model changes.
+   * @category  getter
+   */
+  @Override public List<MiradorRecord> getChangesRight() {
+    return getMiradorChangesRight();
+  }
+
+
+  /**
+   * Gives change transactions of the common base model.
+   *
+   * @return  Base model change transactions.
+   * @category  getter
+   */
+  @Override public List<MiradorTransaction> getTransactionsBase() {
+    return getMiradorTransactionsBase();
+  }
+
+
+  /**
+   * Gives change transactions of the left model.
+   *
+   * @return  Left model change transactions.
+   * @category  getter
+   */
+  @Override public List<MiradorTransaction> getTransactionsLeft() {
+    return getMiradorTransactionsLeft();
+  }
+
+
+  /**
+   * Gives change transactions of the right model.
+   *
+   * @return  Right model change transactions.
+   * @category  getter
+   */
+  @Override public List<MiradorTransaction> getTransactionsRight() {
+    return getMiradorTransactionsRight();
+  }
+}
